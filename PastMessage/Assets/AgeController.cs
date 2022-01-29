@@ -9,10 +9,17 @@ public class AgeController : MonoBehaviour
 
     public GameObject pastGround;
     public GameObject nowGround;
+    public GameObject child;
+    public GameObject adult;
+
+    CamControl camControl;
+
+    private bool childFlag=true;
     // Start is called before the first frame update
     void Start()
     {
         //playerController = Player.GetComponent<PlayerController>();
+        camControl = this.gameObject.GetComponent<CamControl>();
     }
 
     // Update is called once per frame
@@ -20,19 +27,42 @@ public class AgeController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            //子供に成る
-            //playerController.ChangeAge(false);
-            nowGround.SetActive(false);
-            pastGround.SetActive(true);
-            //this.gameObject.transform.position = new Vector3(245f,14.42f,245f);
+            if (childFlag == false)
+            {
+                //子供に成る
+                //playerController.ChangeAge(false);
+                nowGround.SetActive(false);
+                pastGround.SetActive(true);
+                camControl.tracedObj = child;
+                childFlag = true;
+                child.transform.position = new Vector3(adult.transform.position.x, 0, adult.transform.position.z);
+                //this.gameObject.transform.position = new Vector3(245f,14.42f,245f);
+            }
+
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //大人になる
-            //playerController.ChangeAge(true);
-            nowGround.SetActive(true);
-            pastGround.SetActive(false);
-            //this.gameObject.transform.position = new Vector3(-255f,14.42f,-255f);
+            if (childFlag == true)
+            {
+                //大人になる
+                //playerController.ChangeAge(true);
+                nowGround.SetActive(true);
+                pastGround.SetActive(false);
+                camControl.tracedObj = adult;
+                childFlag = false;
+                adult.transform.position = new Vector3(child.transform.position.x, 0, child.transform.position.z);
+                //this.gameObject.transform.position = new Vector3(-255f,14.42f,-255f);
+            }
+
+        }
+
+        if (childFlag)
+        {
+            adult.transform.position = new Vector3(0, -5f, 0);
+        }
+        else
+        {
+            child.transform.position = new Vector3(0, -5f, 0);
         }
     }
 }

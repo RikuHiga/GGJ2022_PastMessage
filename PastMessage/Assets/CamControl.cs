@@ -10,7 +10,7 @@ using UnityEngine;
 public class CamControl : MonoBehaviour
 {
     public GameObject tracedObj;
-    private float CAM_DIST = 20;//カメラがいる距離。平行透視なので近づいても拡大されない。
+    private float CAM_DIST = 50;//カメラがいる距離。平行透視なので近づいても拡大されない。
     private float CAM_HEIGHT_ANGLE = 30;//カメラが上方何度の位置から映すか。
     private float CAM_HORIZON_ANGLE = 45;
     private float camSize = 4f;
