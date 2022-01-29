@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class AgeController : MonoBehaviour
 {
-    public GameObject Player;
-    PlayerController playerController;
+    //public GameObject Player;
+    //PlayerController playerController;
 
     public GameObject pastGround;
     public GameObject nowGround;
     // Start is called before the first frame update
     void Start()
     {
-        playerController = Player.GetComponent<PlayerController>();
+        //playerController = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class AgeController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             //éqãüÇ…ê¨ÇÈ
-            playerController.ChangeAge(false);
+            //playerController.ChangeAge(false);
             nowGround.SetActive(false);
             pastGround.SetActive(true);
             //this.gameObject.transform.position = new Vector3(245f,14.42f,245f);
@@ -29,7 +29,7 @@ public class AgeController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             //ëÂêlÇ…Ç»ÇÈ
-            playerController.ChangeAge(true);
+            //playerController.ChangeAge(true);
             nowGround.SetActive(true);
             pastGround.SetActive(false);
             //this.gameObject.transform.position = new Vector3(-255f,14.42f,-255f);
