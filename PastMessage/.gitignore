@@ -63,6 +63,7 @@ crashlytics-build.properties
 /Assets/UniGLTF
 /Assets/VRM
 /Assets/VRMShaders
+/Assets/3Dmodels
 
 SampleScenes*
 Standard Assets*
