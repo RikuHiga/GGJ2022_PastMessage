@@ -12,15 +12,8 @@ public class PlayerController : MonoBehaviour
     public Sprite adult;
     public Sprite child;
 
-    private Vector3 adultPos = new Vector3(-250,0,-250);
-    private Vector3 childPos= new Vector3(250,0,250);
 
     
-    bool nowAdultFlag = false;
-    float CHILD_CENTER_Y = -1.28f;
-    float CHILD_HEIGHT = 5.08f;
-    float ADULT_CENTER_Y = -0.3f;
-    float ADULT_HEIGHT = 7.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,26 +36,15 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeAge(bool adultFlag)
     {
-        if (adultFlag != nowAdultFlag)
+        if (adultFlag == false)
         {
-            nowAdultFlag = adultFlag;
-            if (adultFlag == false)
-            {
-                //子供(右上)
-                spriteRenderer.sprite = child;
-                Vector3 posDiff = new Vector3(transform.position.x - adultPos.x, 0, transform.position.z - adultPos.z);
-                Debug.Log(posDiff);
-                this.gameObject.transform.position = new Vector3(childPos.x + posDiff.x, 3.83f, childPos.x + posDiff.z);
-            }
-            else
-            {
-                //大人（左下）
-                spriteRenderer.sprite = adult;
-                Vector3 posDiff = new Vector3(transform.position.x - childPos.x, 0, transform.position.z - childPos.z);
-                Debug.Log(posDiff);
-                this.gameObject.transform.position = new Vector3(adultPos.x + posDiff.x, 3.83f, adultPos.x + posDiff.z);
-            }
+            //子供
+            spriteRenderer.sprite = child;
         }
-
+        else
+        {
+            //大人
+            spriteRenderer.sprite = adult;
+        }
     }
 }
