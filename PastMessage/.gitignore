@@ -64,6 +64,8 @@ crashlytics-build.properties
 /Assets/VRM
 /Assets/VRMShaders
 /Assets/3Dmodels
+/Assets/Image
+/Assets/Movie
 
 SampleScenes*
 Standard Assets*
