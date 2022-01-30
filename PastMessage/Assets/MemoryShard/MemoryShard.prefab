@@ -230,6 +230,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   particle: {fileID: 8773175053589333623}
   hanabi: {fileID: 3268129031425042726, guid: bf4c197679458ba4eaf1af348268d79a, type: 3}
+  lightObj: {fileID: 1890558730508088044}
 --- !u!1 &2595903518996597646
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,8 +277,8 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
-  prewarm: 0
+  looping: 1
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1

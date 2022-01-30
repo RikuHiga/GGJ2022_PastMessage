@@ -10,10 +10,12 @@ public class ShardControl : MonoBehaviour
     bool trigger = false;
     public ParticleSystem particle;
     public GameObject hanabi;
+    Light light;
+    public GameObject lightObj;
     // Start is called before the first frame update
     void Start()
     {
-
+        light = lightObj.GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -25,9 +27,9 @@ public class ShardControl : MonoBehaviour
         {
             timer += Time.deltaTime*1.5f;
             transform.localScale = new Vector3(defaultSize.x * curve.Evaluate(timer), defaultSize.y * curve.Evaluate(timer), defaultSize.z * curve.Evaluate(timer));
-            if (timer >= 1.0f)
+            light.intensity = 1.54f * curve.Evaluate(timer);
+            if (timer >= 10f)
             {
-                Instantiate(hanabi, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
@@ -37,5 +39,6 @@ public class ShardControl : MonoBehaviour
     {
         trigger = true;
         particle.Stop();
+        Instantiate(hanabi, transform.position, Quaternion.identity);
     }
 }
