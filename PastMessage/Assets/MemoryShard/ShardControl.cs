@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShardControl : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class ShardControl : MonoBehaviour
             light.intensity = 1.54f * curve.Evaluate(timer);
             if (timer >= 10f)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                SceneManager.LoadScene("ED");
             }
         }
     }
