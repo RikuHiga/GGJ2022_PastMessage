@@ -12,6 +12,9 @@ public class ShardControl : MonoBehaviour
     public GameObject hanabi;
     Light light;
     public GameObject lightObj;
+
+    bool start = false;
+    float startTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +24,8 @@ public class ShardControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, 1f + Mathf.Sin(Time.time)*0.3f, transform.position.z);
+        Vector3 defaultPos = new Vector3(transform.position.x, 1.5f + Mathf.Sin(Time.time)*0.7f, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, defaultPos, Time.deltaTime);
         transform.Rotate(0, 0, 50*Time.deltaTime);
         if (trigger)
         {
